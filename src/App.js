@@ -3,7 +3,7 @@ import NewGoal from "./components/NewGoal";
 import Goals from "./components/Goals";
 
 function App() {
-    const [goals, setGoals] = useState(initialGoals)
+    const [goals, setGoals] = useState([])
 
     const handleAddGoal = (newGoal) => {
         if(!newGoal) {
@@ -13,7 +13,7 @@ function App() {
         const updatedGoals = [
             ...goals,
             {
-                id: goals[goals.length -1].id + 1,
+                id: goals.length ? goals[goals.length -1].id + 1 : 1,
                 name: newGoal,
                 done: false
             }
@@ -56,23 +56,5 @@ function App() {
         </div>
     );
 }
-
-const initialGoals = [
-    {
-        id: 1,
-        name: "Read quran",
-        done: true
-    },
-    {
-        id: 2,
-        name: "Practice code",
-        done: false
-    },
-    {
-        id: 3,
-        name: "Play ball",
-        done: false
-    }
-]
 
 export default App;

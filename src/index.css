@@ -59,6 +59,14 @@ main {
   background-color: rgb(1, 136, 1);
 }
 
+.no-goals {
+  color: red;
+  font-style: italic;
+  margin-top: 1rem;
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
 .goals {
   margin-top: 1.5rem;
   display: flex;
