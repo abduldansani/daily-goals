@@ -1,27 +1,47 @@
+import { useState } from "react";
 import NewGoal from "./components/NewGoal";
 import Goals from "./components/Goals";
 
 function App() {
-  return (
-    <div className="app">
-        <header>
-            <h1>DAILY GOALS</h1>
-        </header>
-        <main>
-            <NewGoal />
-            <Goals 
-              goals={goals}
-            />
-        </main>
-        <footer>
-            <p>&copy; Flowdiary 2024</p>
-        </footer>
-    </div>
-  );
+    const [goals, setGoals] = useState(initialGoals)
+
+    const handleAddGoal = (goalTitle) => {
+        if(!goalTitle) return
+
+        const updatedGoals = [
+            ...goals,
+            {
+                id: goals.length ? goals[goals.length - 1].id + 1 : 1,
+                title: goalTitle,
+                done: false
+            }
+        ]
+
+        setGoals(updatedGoals)
+    }
+
+    return (
+        <div className="app">
+            <header>
+                <h1>DAILY GOALS</h1>
+            </header>
+            <main>
+                <NewGoal 
+                    onAddGoal={handleAddGoal}
+                />
+                <Goals 
+                    goals={goals}
+                />
+            </main>
+            <footer>
+                <p>&copy; Flowdiary 2024</p>
+            </footer>
+        </div>
+    );
 }
 
 
-const goals = [
+const initialGoals = [
   {
       id: 1,
       title: "Practice code",

@@ -1,13 +1,13 @@
 import { FaPlus } from "react-icons/fa"
 import { useState } from "react"
 
-const NewGoal = () => {
+const NewGoal = ({ onAddGoal }) => {
     const [newGoal, setNewGoal] = useState("")
 
     const addGoal = () => {
         if(!newGoal) return
 
-        console.log(newGoal)
+        onAddGoal(newGoal)
         setNewGoal("")
     }
 
