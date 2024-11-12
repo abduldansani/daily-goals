@@ -1,17 +1,18 @@
-import { useState } from "react"
 import { FaEdit, FaTrashAlt, FaSave } from "react-icons/fa"
 
-const Goal = ({ goal }) => {
-    const [isEditing, setIsEditing] = useState(false)
+const Goal = ({ goal, editingGoal, onChangeEditingGoal }) => {
     return (
         <>
-            {isEditing ? (
+            {goal.id == editingGoal ? (
                 <div className="goal-editing">
                     <input 
                         type="text"
                         value={goal.title}
                     />
-                    <div className="save-button">
+                    <div 
+                        className="save-button"
+                        onClick={() => onChangeEditingGoal(null)}
+                    >
                         <FaSave />
                     </div>
                 </div>
@@ -22,7 +23,10 @@ const Goal = ({ goal }) => {
                         checked={goal.done}
                     />
                     <p>{goal.title}</p>
-                    <div className="edit-button">
+                    <div 
+                        className="edit-button"
+                        onClick={() => onChangeEditingGoal(goal.id)}
+                    >
                         <FaEdit />
                     </div>
                     <div className="delete-button">

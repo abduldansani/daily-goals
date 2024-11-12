@@ -9,7 +9,9 @@ function App() {
         </header>
         <main>
             <NewGoal />
-            <Goals />
+            <Goals 
+              goals={goals}
+            />
         </main>
         <footer>
             <p>&copy; Flowdiary 2024</p>
@@ -17,5 +19,24 @@ function App() {
     </div>
   );
 }
+
+
+const goals = [
+  {
+      id: 1,
+      title: "Practice code",
+      done: true
+  },
+  {
+      id: 2,
+      title: "Iron clothes",
+      done: false
+  },
+  {
+      id: 3,
+      title: "Go to school",
+      done: true
+  },
+]
 
 export default App;
