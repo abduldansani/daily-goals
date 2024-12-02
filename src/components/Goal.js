@@ -1,13 +1,17 @@
 import { FaEdit, FaTrashAlt, FaSave } from "react-icons/fa"
 
-const Goal = ({ goal, editingGoal, onChangeEditingGoal }) => {
+const Goal = ({ goal, editingGoal, onChangeEditingGoal, onCompleteGoal, onDeleteGoal, onEditGoal }) => {
     return (
         <>
-            {goal.id == editingGoal ? (
+            {goal.id === editingGoal ? (
                 <div className="goal-editing">
                     <input 
                         type="text"
                         value={goal.title}
+                        onChange={(e) => onEditGoal(goal.id, e.target.value)}
+                        onKeyDown={(e) => {
+                            if(e.key === "Enter") onChangeEditingGoal(null)
+                        }}
                     />
                     <div 
                         className="save-button"
@@ -21,6 +25,7 @@ const Goal = ({ goal, editingGoal, onChangeEditingGoal }) => {
                     <input 
                         type="checkbox"
                         checked={goal.done}
+                        onChange={() => onCompleteGoal(goal.id)}
                     />
                     <p>{goal.title}</p>
                     <div 
@@ -29,7 +34,10 @@ const Goal = ({ goal, editingGoal, onChangeEditingGoal }) => {
                     >
                         <FaEdit />
                     </div>
-                    <div className="delete-button">
+                    <div 
+                        className="delete-button"
+                        onClick={() => onDeleteGoal(goal.id)}
+                    >
                         <FaTrashAlt />
                     </div>
                 </div>

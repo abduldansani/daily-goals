@@ -1,4 +1,4 @@
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -14,12 +14,12 @@
   border-left: 3px solid rgb(5, 5, 85);
 }
 
-header, footer {
+header,
+footer {
   background-color: rgb(5, 5, 85);
   color: white;
   padding: 1rem;
   text-align: center;
-  
 }
 
 main {
@@ -59,6 +59,14 @@ main {
   background-color: rgb(1, 136, 1);
 }
 
+.no-goals {
+  color: red;
+  font-style: italic;
+  margin-top: 1rem;
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
 .goals {
   margin-top: 1.5rem;
   display: flex;
@@ -66,7 +74,8 @@ main {
   gap: 1.5rem;
 }
 
-.goal, .goal-editing {
+.goal,
+.goal-editing {
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -78,7 +87,8 @@ input[type="checkbox"] {
   cursor: pointer;
 }
 
-.goal p, .goal-editing input[type="text"] {
+.goal p,
+.goal-editing input[type="text"] {
   flex: 1;
   padding: 0.5rem;
   font-size: 1.2rem;
@@ -97,7 +107,9 @@ input[type="checkbox"] {
   border-radius: 10px;
 }
 
-.save-button, .edit-button, .delete-button {
+.save-button,
+.edit-button,
+.delete-button {
   font-size: 2rem;
   cursor: pointer;
   display: flex;
